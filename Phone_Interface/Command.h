@@ -21,8 +21,17 @@
 #define X_MAX 240
 #define Y_MAX 320
 
+#define MENU 0
+#define DIALER 1
+#define TEXTER 2
+#define TYPER 3
+#define VIEW_TEXT 4
+#define HAS_CALL 5
+#define IN_CALL 6
+
 typedef enum{HALTED, RUNNING} run_state;
 typedef enum{OK, UNDEFINED_ERROR} error_status;
+typedef enum{GOTO_MENU, GOTO_DIALER, GOTO_TEXTER, GOTO_TYPER, GOTO_VIEW_TEXT, HANGUP_GOTO_MENU, ANSWER_GOTO_IN_CALL} commands;
 
 void fixpoint_orientation(point& p);
 
@@ -33,6 +42,7 @@ class Command {
       void sendInput(const char *c);
       //void deleteInput(int n);
       //void sendState(State s, char v);
+      void sendCommand(commands c);
       error_status run();
       Command();
       static Serial pc;
