@@ -76,45 +76,22 @@ error_status Command::run(){
     return OK;
 }
 
-
-
-void Command::sendCommand(commands c){
-    switch(c){
-    case GOTO_MENU:{
-        
-    }break;
-    case GOTO_DIALER:{
-        currentUI = DIALER;
-        ui[DIALER]->draw();
-    }break;
-    case GOTO_TEXTER:
-
-        break;
-
-    case GOTO_TYPER:
-
-        break;
-
-    case GOTO_VIEW_TEXT:
-
-        break;
-
-    case HANGUP_GOTO_MENU:
-
-        break;
-
-    case ANSWER_GOTO_IN_CALL:
-
-        break;
-    
-    default:
-        break;
-    }
-}
-
 void Action::envoke(){}
 
 void SwitchScreen:: envoke(){
     cmd->currentUI = scrn;
     cmd->ui[scrn]->draw();
 }
+
+void AnswerHasCall::envoke(){
+    // Here's where we answer the call
+    cmd->currentUI = HAS_CALL;
+    cmd->ui[HAS_CALL]->draw();
+}
+
+void HangupCall::envoke(){
+    // Here's where we hangup the call
+    cmd->currentUI = MENU;
+    cmd->ui[MENU]->draw();
+}
+

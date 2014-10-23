@@ -64,4 +64,19 @@ class SwitchScreen : public Action{
     SwitchScreen(Command *command, int screen) : cmd(command), scrn(screen){};
 };
 
+
+class AnswerHasCall : public Action{
+    Command *cmd;
+  public:
+    virtual void envoke();
+    AnswerHasCall(Command *command) : cmd(command){};
+};
+
+class HangupCall : public Action{
+    Command *cmd;
+  public:
+    virtual void envoke();
+    HangupCall(Command *command) : cmd(command){};
+};
+
 #endif
