@@ -56,7 +56,7 @@ class Action{
     virtual void envoke();
 };
 
-class SwitchScreen : Action{
+class SwitchScreen : public Action{
     Command *cmd;
     int scrn;
   public:
