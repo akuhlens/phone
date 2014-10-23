@@ -1,7 +1,7 @@
 #include "Dialer.h"
 #include "Display.h"
 
-Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(11 ,12, 1, display){
+Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(12 ,13, 1, display){
     CharButton *cb0 = new CharButton( 80, 270, 80, 50, "0", '0',"yz#", command, display);
     CharButton *cb1 = new CharButton(  0, 120, 80, 50, "1", '0',"", command, display);
     CharButton *cb2 = new CharButton( 80, 120, 80, 50, "2", '0',"abc", command, display);
@@ -15,6 +15,9 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(11 ,1
 
     Action *call = new MakeCall(command);
     ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, call, "Call", command, display);
+
+    Action *switchMenu = new SwitchScreen(command, MENU);
+    ActionButton *back   = new ActionButton(0, 270, 80, 50, switchMenu, "Menu", command, display);
 
     //ModeButton *enter = new modeButton(50, 50, 50, 50, "Enter", command, display);
         
@@ -34,7 +37,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(11 ,1
     drawable[9] = cb9;
     drawable[10] = disp;
     drawable[11] = makeCall;
-    
+    drawable[12] = back;
     
     touchable[0] = cb0;
     touchable[1] = cb1;
@@ -47,6 +50,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(11 ,1
     touchable[8] = cb8;
     touchable[9] = cb9;
     touchable[10] = makeCall;
+    touchable[11] = back;
 
     
     writeable[0] = disp;
