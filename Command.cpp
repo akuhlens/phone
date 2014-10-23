@@ -102,6 +102,6 @@ void Command::sendCommand(commands c){
         break;
     
     default:
-
+        break;
     }
 }
