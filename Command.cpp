@@ -1,6 +1,7 @@
 #include "Command.h" // implicitly "mbed.h", "SeeedStudioTFTv2.h"
 #include "Arial12x12.h"
 #include "Dialer.h"
+#include "Menu.h"
 
 
 Serial Command::pc(USBTX, USBRX);
@@ -79,12 +80,11 @@ void Command::sendCommand(commands c){
     switch(c){
     case GOTO_MENU:{
         currentUI = MENU;
-        ui[MENU]->draw;
+        ui[MENU]->draw();
     }break;
     case GOTO_DIALER:{
-        assert(currentUI == 0);
         currentUI = DIALER;
-        ui[DIALER]->draw;
+        ui[DIALER]->draw();
     }break;
     case GOTO_TEXTER:
 
