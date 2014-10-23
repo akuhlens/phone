@@ -1,7 +1,7 @@
 #include "HasCall.h"
 #include "Button.h"
 
-HasCall::HasCall(Command *command, SeeedStudioTFTv2 *display): UserInterface(2 , 2, 0){
+HasCall::HasCall(Command *command, SeeedStudioTFTv2 *display): UserInterface(2 , 2, 0, display){
     // Initialize the three buttons on the menu screen
     
     Action *answer = new AnswerHasCall(command);
