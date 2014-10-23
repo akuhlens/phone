@@ -2,7 +2,8 @@
 #include "Arial12x12.h"
 #include "Dialer.h"
 #include "Menu.h"
-
+#include "HasCall.h"
+#include "InCall.h"
 
 Serial Command::pc(USBTX, USBRX);
 SeeedStudioTFTv2 Command::screen(PIN_XP, PIN_XM, PIN_YP, PIN_YM, PIN_MOSI, PIN_MISO, PIN_SCLK, PIN_CS_TFT, PIN_DC_TFT, PIN_BL_TFT, PIN_CS_SD);
@@ -31,9 +32,10 @@ Command::Command(){
     // The starting Ui is the menu
     currentUI = 0;
     //1.3.1 Create the various screens 
-    ui[0]= new Menu(this, &screen);
-    ui[1]= new Dialer(this, &screen);
-    
+    ui[MENU]    = new Menu(this, &screen);
+    ui[DIALER]  = new Dialer(this, &screen);
+    ui[HAS_CALL]= new HasCall(this, &screen);
+    ui[IN_CALL] = new InCall(this, &screen);
     // Calibrate the screen
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
