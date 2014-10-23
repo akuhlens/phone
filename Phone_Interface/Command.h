@@ -46,7 +46,6 @@ class Command {
       Command();
       static Serial pc;
       int currentUI;
-    private:
       static SeeedStudioTFTv2 screen;
       UserInterface* ui[2];
       run_state isRunning;
@@ -54,8 +53,15 @@ class Command {
 
 class SendCommand{
   public:
+    virtual void envoke() = 0;
+};
+
+class SwitchScreenCmd : SendCommand{
+    Command *cmd;
+    int scrn;
+  public:
     virtual void envoke();
-    SendCommand(Command *cmd);
-}
+    SwitchScreenCmd(Command *command, int screen) : scrn(screen), cmd(command){};
+};
 
 #endif

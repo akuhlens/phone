@@ -115,3 +115,26 @@ void CommandButton::touch(point& p){
    }
 }
 
+void ActionButton::touch(point& p){
+    if ((x < p.x) && (p.x < (x + width)) &&  y < p.y && p.y < (y + height)){    
+        // invert the colors while the button is held
+        int bg = this->bgColor;
+        int fg = this->fgColor;
+        bgColor = fg;
+        fgColor = bg;
+        
+        draw();
+        
+        // set the back
+        bgColor = bg;
+        fgColor = fg;
+        
+        // Don't do anything until keys is released the first time
+        while(display->getPixel(p)); //spin until the key is unpressed
+
+        // If the button needs to be redrawn the action should handle this
+        act.envoke();
+        
+   }
+}
+
