@@ -93,8 +93,7 @@ void CharButton::touch(point& p){
 }
 
 void CommandButton::touch(point& p){
-    if ((x < p.x) && (p.x < (x + width)) &&  y < p.y && p.y < (y + height)){
-        
+    if ((x < p.x) && (p.x < (x + width)) &&  y < p.y && p.y < (y + height)){    
         // invert the colors while the button is held
         int bg = this->bgColor;
         int fg = this->fgColor;
@@ -102,11 +101,17 @@ void CommandButton::touch(point& p){
         fgColor = bg;
         
         draw();
-                
-        while(display->getPixel(p)); //spin until the key is unpressed
+        
+        // set the back
         bgColor = bg;
         fgColor = fg;
-        draw();
-
+        
+        // this should make the button disappear so we don't need to readraw
+        this->controller->sendCommand(this->command);
+        
+        // even after the screen switches we don't want to accept key presses until
+        // the press is over
+        while(display->getPixel(p)); //spin until the key is unpressed
    }
 }
+
