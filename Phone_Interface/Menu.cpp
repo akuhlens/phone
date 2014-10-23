@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Button.h"
 
 Menu::Menu(Command *command, SeeedStudioTFTv2 *display): UserInterface(3 , 3, 0){
     // Initialize the three buttons on the menu screen
