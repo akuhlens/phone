@@ -1,7 +1,7 @@
 #include "Dialer.h"
 #include "Display.h"
 
-Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(10 ,11, 1){
+Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(10 ,11, 1, display){
     CharButton *cb0 = new CharButton( 80, 260, 80, 50, "0", '0',"yz#", command, display);
     CharButton *cb1 = new CharButton(  0,  90, 80, 50, "1", '0',"", command, display);
     CharButton *cb2 = new CharButton( 80,  90, 80, 50, "2", '0',"abc", command, display);
