@@ -133,7 +133,7 @@ void ActionButton::touch(point& p){
         while(display->getPixel(p)); //spin until the key is unpressed
 
         // If the button needs to be redrawn the action should handle this
-        act.envoke();
+        act->envoke();
         
    }
 }

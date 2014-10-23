@@ -42,7 +42,7 @@ class ActionButton: public Button {
       Action *act;
     public:
       virtual void touch(point& p);
-      ActionButton(int x, int y, int w, int h, Action* a, const Char* l, Command *c, SeeedStudioTFTv2 *d):
+      ActionButton(int x, int y, int w, int h, Action* a, const char* l, Command *c, SeeedStudioTFTv2 *d):
           act(a), Button(x, y, w, h, l, c, d) {};
 };
 #endif
