@@ -53,7 +53,7 @@ class Command {
 
 class Action{
   public:
-    virtual void envoke() = 0;
+    virtual void envoke();
 };
 
 class SwitchScreen : Action{
