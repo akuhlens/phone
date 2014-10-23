@@ -24,8 +24,9 @@ class UserInterface : public Touchable, public Drawable, public Writeable {
       virtual void draw();
       virtual void touch(point& p);
       virtual void sendInput(const char *c);
-      UserInterface(int ts, int ds, int ws);
-   
+      UserInterface(int ts, int ds, int ws, SeeedStudioTFTv2 *d);
+
+      SeeedStudioTFTv2 *screen;
       int        numberTouchable;
       Touchable **touchable;
       int        numberDrawable;

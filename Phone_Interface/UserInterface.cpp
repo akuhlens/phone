@@ -2,7 +2,8 @@
 #include "UserInterface.h"
 //#include "Display.h"
 
-UserInterface::UserInterface(int ts, int ds, int ws) : numberTouchable(ts), numberDrawable(ds), numberWritable(ws){
+UserInterface::UserInterface(int ts, int ds, int ws, SeeedStudioTFTv2 *d) : 
+    numberTouchable(ts), numberDrawable(ds), numberWritable(ws), screen(d){
     touchable = (Touchable**) malloc(ts * sizeof(Touchable));
     drawable =  (Drawable**) malloc(ds * sizeof(Drawable));
     writeable = (Writeable**) malloc(ws * sizeof(Writeable));
@@ -15,7 +16,11 @@ void UserInterface::touch(point& p){
 }
 
 void UserInterface::draw(){
-   for(int i = 0; i < numberDrawable; i++){
+  
+  screen->cls();
+  screen->fill(0,0,200,200, 0);
+  
+  for(int i = 0; i < numberDrawable; i++){
      drawable[i]->draw();    
    }
 }
