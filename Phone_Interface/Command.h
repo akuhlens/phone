@@ -61,7 +61,7 @@ class SwitchScreen : Action{
     int scrn;
   public:
     virtual void envoke();
-    SwitchScreen(Command *command, int screen) : scrn(screen), cmd(command){};
+    SwitchScreen(Command *command, int screen) : cmd(command), scrn(screen){};
 };
 
 #endif
