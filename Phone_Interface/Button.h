@@ -36,4 +36,13 @@ class CommandButton: public Button {
       virtual void touch(point& p);
       CommandButton(int x, int y, int width, int height, commands cmd, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
 };
+
+class ActionButton: public Button {
+    private:
+      Action act;
+    public:
+      virtual void touch(point& p);
+      ActionButton(int x, int y, int w, int h, Action a, const Char* l, Command *c, SeeedStudioTFTv2 *d):
+          act(a), Button(x, y, w, h, l, c, d) {};
+};
 #endif

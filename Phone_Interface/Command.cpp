@@ -76,11 +76,12 @@ error_status Command::run(){
     return OK;
 }
 
+
+
 void Command::sendCommand(commands c){
     switch(c){
     case GOTO_MENU:{
-        currentUI = MENU;
-        ui[MENU]->draw();
+        
     }break;
     case GOTO_DIALER:{
         currentUI = DIALER;
@@ -109,4 +110,9 @@ void Command::sendCommand(commands c){
     default:
         break;
     }
+}
+
+SwitchScreenCmd:: envoke(){
+    cmd->currentUI = scrn;
+    cmd->ui[scrn]->draw();
 }
