@@ -2,19 +2,19 @@
 #include "Display.h"
 
 Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(10 ,11, 1){
-    CharButton *cb0 = new CharButton( 80, 260, 80, 60, "0", '0',"yz#", command, display);
-    CharButton *cb1 = new CharButton(  0,  80, 80, 60, "1", '0',"", command, display);
-    CharButton *cb2 = new CharButton( 80,  80, 80, 60, "2", '0',"abc", command, display);
-    CharButton *cb3 = new CharButton(160,  80, 80, 60, "3", '0',"def", command, display);
-    CharButton *cb4 = new CharButton(  0, 140, 80, 60, "4", '0',"ghi", command, display);
-    CharButton *cb5 = new CharButton( 80, 140, 80, 60, "5", '0',"jkl", command, display);
-    CharButton *cb6 = new CharButton(160, 140, 80, 60, "6", '0',"mno", command, display);
-    CharButton *cb7 = new CharButton(  0, 200, 80, 60, "7", '0',"pqr", command, display);
-    CharButton *cb8 = new CharButton( 80, 200, 80, 60, "8", '0',"stu", command, display);
-    CharButton *cb9 = new CharButton(160, 200, 80, 60, "9", '0',"vwx", command, display);
+    CharButton *cb0 = new CharButton( 80, 260, 80, 50, "0", '0',"yz#", command, display);
+    CharButton *cb1 = new CharButton(  0,  90, 80, 50, "1", '0',"", command, display);
+    CharButton *cb2 = new CharButton( 80,  90, 80, 50, "2", '0',"abc", command, display);
+    CharButton *cb3 = new CharButton(160,  90, 80, 50, "3", '0',"def", command, display);
+    CharButton *cb4 = new CharButton(  0, 150, 80, 50, "4", '0',"ghi", command, display);
+    CharButton *cb5 = new CharButton( 80, 150, 80, 50, "5", '0',"jkl", command, display);
+    CharButton *cb6 = new CharButton(160, 150, 80, 50, "6", '0',"mno", command, display);
+    CharButton *cb7 = new CharButton(  0, 210, 80, 50, "7", '0',"pqr", command, display);
+    CharButton *cb8 = new CharButton( 80, 210, 80, 50, "8", '0',"stu", command, display);
+    CharButton *cb9 = new CharButton(160, 210, 80, 50, "9", '0',"vwx", command, display);
     //ModeButton *enter = new modeButton(50, 50, 50, 50, "Enter", command, display);
         
-    Display *disp = new Display(0,0,240,80,command,display);
+    Display *disp = new Display(0,0,240,60,command,display);
     
     //this->disp = disp;
     
