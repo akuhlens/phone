@@ -51,17 +51,17 @@ class Command {
       run_state isRunning;
 };
 
-class SendCommand{
+class Action{
   public:
     virtual void envoke() = 0;
 };
 
-class SwitchScreenCmd : SendCommand{
+class SwitchScreen : Action{
     Command *cmd;
     int scrn;
   public:
     virtual void envoke();
-    SwitchScreenCmd(Command *command, int screen) : scrn(screen), cmd(command){};
+    SwitchScreen(Command *command, int screen) : scrn(screen), cmd(command){};
 };
 
 #endif
