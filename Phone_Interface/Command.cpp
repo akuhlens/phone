@@ -112,7 +112,7 @@ void Command::sendCommand(commands c){
     }
 }
 
-SwitchScreen:: envoke(){
+void SwitchScreen:: envoke(){
     cmd->currentUI = scrn;
     cmd->ui[scrn]->draw();
 }
