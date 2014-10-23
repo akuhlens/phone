@@ -9,7 +9,7 @@ Menu::Menu(Command *command, SeeedStudioTFTv2 *display): UserInterface(3 , 3, 0)
     // Register them as both drawlable and touchable
     drawable[0] = dialer;
     drawable[1] = texter;
-    drawable[3] = viewText;
+    drawable[2] = viewText;
     touchable[0] = dialer;
     touchable[1] = texter;
     touchable[2] = viewText;
