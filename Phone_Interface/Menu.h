@@ -3,8 +3,8 @@
 #include "UserInterface.h"
 #include "Command.h"
 #include "SeeedStudioTFTv2.h"
-#include "Button.h"
-#include "Display.h"
+
+
 
 class Menu : public UserInterface{  
     public:
