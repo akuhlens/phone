@@ -34,7 +34,6 @@ class CommandButton: public Button {
       commands command;
     public:
       virtual void touch(point& p);
-      virtual void draw();
       CommandButton(int x, int y, int width, int height, commands cmd, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
 };
 #endif
