@@ -6,13 +6,17 @@ Menu::Menu(Command *command, SeeedStudioTFTv2 *display): UserInterface(1 , 1, 0)
     
     Action *dial = new SwitchScreen(command, DIALER);
     ActionButton *dialer   = new ActionButton(0,   0, 240, 80, dial, "Make Call", command, display);
-    //ActionButton *texter   = new ActionButton(0,  80, 240, 80, GOTO_TEXTER,    "Send Text", command, display);
-    //ActionButton *viewText = new ActionButton(0, 160, 240, 80, GOTO_VIEW_TEXT, "View Text", command, display);
+    
+    Action *text = new SwitchScreen(command, TEXTER);
+    ActionButton *texter   = new ActionButton(0,  80, 240, 80, text, "Send Text", command, display);
+  
+    Action *vtext = new SwitchScreen(command, VIEW_TEXT);
+    ActionButton *viewText = new ActionButton(0, 160, 240, 80, vtext, "View Text", command, display);
     //Register them as both drawlable and touchable
     drawable[0] = dialer;
-    //drawable[1] = texter;
-    //drawable[2] = viewText;
+    drawable[1] = texter;
+    drawable[2] = viewText;
     touchable[0] = dialer;
-    //touchable[1] = texter;
-    //touchable[2] = viewText;
+    touchable[1] = texter;
+    touchable[2] = viewText;
 }
