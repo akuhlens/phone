@@ -34,8 +34,8 @@ Command::Command(){
     //1.3.1 Create the various screens 
     ui[MENU]    = new Menu(this, &screen);
     ui[DIALER]  = new Dialer(this, &screen);
-    //ui[HAS_CALL]= new HasCall(this, &screen);
-    //ui[IN_CALL] = new InCall(this, &screen);
+    ui[HAS_CALL]= new HasCall(this, &screen);
+    ui[IN_CALL] = new InCall(this, &screen);
     // Calibrate the screen
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
