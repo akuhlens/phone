@@ -70,3 +70,38 @@ error_status Command::run(){
     }
     return OK;
 }
+
+void Command::sendCommand(commands c){
+    switch(c){
+    case GOTO_MENU:
+
+        break;
+    
+    case GOTO_DIALER:
+
+        break;
+
+    case GOTO_TEXTER:
+
+        break;
+
+    case GOTO_TYPER:
+
+        break;
+
+    case GOTO_VIEW_TEXT:
+
+        break;
+
+    case HANGUP_GOTO_MENU:
+
+        break;
+
+    case ANSWER_GOTO_IN_CALL:
+
+        break;
+    
+    default:
+
+    }
+}
