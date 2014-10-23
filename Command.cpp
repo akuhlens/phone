@@ -25,10 +25,14 @@ Command::Command(){
         screen.printf("J & A");
       }
     }
-    //1.3 create dialer ui
-    Dialer *dial = new Dialer(this, &screen);
-    ui[0] = dial;
+    
+    //1.3.0 The various UserInterfaces are stored in an array
+    // The starting Ui is the menu
     currentUI = 0;
+    //1.3.1 Create the various screens 
+    ui[0]= new Menu(this, &screen);
+    ui[1]= new Dialer(this, &screen);
+    
     // Calibrate the screen
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
@@ -58,14 +62,14 @@ error_status Command::run(){
    p.x = 0;
    p.y = 0;
    
-   ui[0]->draw();
+   ui[currentUI]->draw();
    
    while(isRunning){
         if (screen.getPixel(p) ){
             // The points are inverted and incorrectly scaled by this factor
             fixpoint_orientation(p);
             pc.printf("%d %d\n\r",p.x,p.y);
-            ui[0]->touch(p);
+            ui[currentUI]->touch(p);
         }
     }
     return OK;
@@ -73,14 +77,15 @@ error_status Command::run(){
 
 void Command::sendCommand(commands c){
     switch(c){
-    case GOTO_MENU:
-
-        break;
-    
-    case GOTO_DIALER:
-
-        break;
-
+    case GOTO_MENU:{
+        currentUI = MENU;
+        ui[MENU]->draw;
+    }break;
+    case GOTO_DIALER:{
+        assert(currentUI == 0);
+        currentUI = DIALER;
+        ui[DIALER]->draw;
+    }break;
     case GOTO_TEXTER:
 
         break;
