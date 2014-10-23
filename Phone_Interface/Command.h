@@ -51,4 +51,11 @@ class Command {
       UserInterface* ui[2];
       run_state isRunning;
 };
+
+class SendCommand{
+  public:
+    virtual void envoke();
+    SendCommand(Command *cmd);
+}
+
 #endif
