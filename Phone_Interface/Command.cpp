@@ -88,7 +88,7 @@ void SwitchScreen:: envoke(){
 void MakeCall::envoke(){
     // Here's where we answer the call
     cmd->currentUI = IN_CALL;
-    //cmd->ui[IN_CALL]->draw();
+    cmd->ui[IN_CALL]->draw();
 }
 
 void AnswerHasCall::envoke(){

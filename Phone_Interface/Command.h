@@ -47,7 +47,7 @@ class Command {
       static Serial pc;
       int currentUI;
       static SeeedStudioTFTv2 screen;
-      UserInterface* ui[6];
+      UserInterface* ui[7];
       run_state isRunning;
 };
 
