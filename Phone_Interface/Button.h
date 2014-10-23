@@ -31,10 +31,10 @@ class CharButton: public Button {
 
 class CommandButton: public Button {
     private:
-      int command;
+      commands command;
     public:
       virtual void touch(point& p);
       virtual void draw();
-      CommandButton(int x, int y, int width, int height, int mode, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
+      CommandButton(int x, int y, int width, int height, commands cmd, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
 };
 #endif
