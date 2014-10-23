@@ -2,7 +2,8 @@
 #define Command_H
 #include "mbed.h"
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
-// the serial port for printf in debuging
+#include "UserInterface.h"
+
 
 // The Configuation for the sceen device
 // Touch pins
@@ -35,8 +36,6 @@ typedef enum{GOTO_MENU, GOTO_DIALER, GOTO_TEXTER, GOTO_TYPER, GOTO_VIEW_TEXT, HA
 
 void fixpoint_orientation(point& p);
 
-class UserInterface;
-
 class Command {
     public:
       void sendInput(const char *c);
@@ -52,8 +51,4 @@ class Command {
       UserInterface* ui[2];
       run_state isRunning;
 };
-
-// There is a cyclic dependancy here hence the forward declaration
-#include "UserInterface.h"
-
 #endif
