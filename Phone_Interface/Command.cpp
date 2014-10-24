@@ -112,7 +112,7 @@ void SendText::envoke(){
 }
 
 void AnswerHasCall::envoke(){
-    // Here's where we answer the call\
+    // Here's where we answer the call
     const char c = 13;
     cmd->sendInput(&c);
     cmd->currentUI = IN_CALL;
