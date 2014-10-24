@@ -81,7 +81,7 @@ class MakeCall : public Action{
     // Display *display;
   public:
     virtual void envoke();
-    MakeCall(Command *command, Display *disp) : cmd(command), disp(display){};
+    MakeCall(Command *command) : cmd(command){};
 };
 
 class SendText : public Action{
