@@ -6,7 +6,6 @@
 #include "Typer.h"
 #include "HasCall.h"
 #include "InCall.h"
-#include "gprs.h"
 
 Serial Command::pc(USBTX, USBRX);
 SeeedStudioTFTv2 Command::screen(PIN_XP, PIN_XM, PIN_YP, PIN_YM, PIN_MOSI, PIN_MISO, PIN_SCLK, PIN_CS_TFT, PIN_DC_TFT, PIN_BL_TFT, PIN_CS_SD);
