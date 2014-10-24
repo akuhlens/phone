@@ -3,7 +3,7 @@
 #include "mbed.h"
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
 #include "UserInterface.h"
-#include "gpsr.h"
+#include "gprs.h"
 // #include "Display.h"
 
 // The Configuation for the sceen device
@@ -50,7 +50,7 @@ class Command {
       static SeeedStudioTFTv2 screen;
       UserInterface* ui[7];
       run_state isRunning;
-      GPSR *cell;
+      GPRS *cell;
 };
 
 class Action{
