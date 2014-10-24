@@ -102,7 +102,7 @@ void MakeCall::envoke(){
 
 void SendText::envoke(){
     cmd->currentUI = MENU;
-    cmd->ui[IN_CALL]->draw();
+    cmd->ui[MENU]->draw();
 }
 
 void AnswerHasCall::envoke(){

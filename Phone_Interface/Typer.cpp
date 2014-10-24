@@ -17,7 +17,7 @@ Typer::Typer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14,
     ActionButton *backspaceButton = new ActionButton(160, 270, 80, 50, backspace, "Back", command, display);
 
     Action *text = new SendText(command);
-    ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, text, "Send", command, display);
+    ActionButton *sendText   = new ActionButton(0,   80, 240, 40, text, "Send", command, display);
 
     Action *switchMenu = new SwitchScreen(command, MENU);
     ActionButton *back   = new ActionButton(0, 270, 80, 50, switchMenu, "Menu", command, display);
@@ -39,7 +39,7 @@ Typer::Typer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14,
     drawable[8] = cb8;
     drawable[9] = cb9;
     drawable[10] = disp;
-    drawable[11] = makeCall;
+    drawable[11] = sendText;
     drawable[12] = back;
     drawable[13] = backspaceButton;
     
@@ -53,7 +53,7 @@ Typer::Typer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14,
     touchable[7] = cb7;
     touchable[8] = cb8;
     touchable[9] = cb9;
-    touchable[10] = makeCall;
+    touchable[10] = sendText;
     touchable[11] = back;
     touchable[12] = backspaceButton;
     
