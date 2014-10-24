@@ -110,6 +110,7 @@ void MakeCall::envoke(){
 }
 
 void WriteText::envoke(){
+    cmd->pc.printf("%s\n", buffer);
     if(*length == 11){
         cmd->cell->phoneNumber = buffer;
         const char c = 13;
