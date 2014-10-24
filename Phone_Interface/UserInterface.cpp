@@ -16,8 +16,8 @@ void UserInterface::touch(point& p){
 }
 
 void UserInterface::draw(){
-  
-  screen.background(Black);
+
+  screen->background(Black);
   screen->cls();
   //screen->fill(0,0,240,340, 768);
   
