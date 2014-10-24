@@ -9,10 +9,9 @@ class Display: public Drawable, public Writeable{
     private:
       Command          *controller; 
       SeeedStudioTFTv2 *display; 
+    public:
       int x, y, width, height, bordorWidth,contentIndex, bgColor, fgColor;
       char* content;
-
-    public:
       virtual void sendInput(const char *c);
       // virtual void clear();
       virtual void draw();

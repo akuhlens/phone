@@ -6,6 +6,7 @@
 #include "Typer.h"
 #include "HasCall.h"
 #include "InCall.h"
+#include "gprs.h"
 
 Serial Command::pc(USBTX, USBRX);
 SeeedStudioTFTv2 Command::screen(PIN_XP, PIN_XM, PIN_YP, PIN_YM, PIN_MOSI, PIN_MISO, PIN_SCLK, PIN_CS_TFT, PIN_DC_TFT, PIN_BL_TFT, PIN_CS_SD);
@@ -44,7 +45,7 @@ Command::Command(){
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
-    
+    gpsr = new GPSR();
     //inititialize all of the components
     
     
@@ -53,10 +54,6 @@ Command::Command(){
 void Command::sendInput(const char *c){
   ui[currentUI]->sendInput(c);
 }
-
-//void Command::deleteInput(int n){
-//    ui[currentUI]->deleteInput(n);
-//}
 
 void fixpoint_orientation(point& p){
     int x = (p.y * 3) / 4;  
@@ -98,10 +95,14 @@ void SwitchScreen::envoke(){
 
 void MakeCall::envoke(){
     // Here's where we answer the call
-    const char c = 13;
-    cmd->sendInput(&c);
-    cmd->currentUI = IN_CALL;
-    cmd->ui[IN_CALL]->draw();
+    if(disp->contentIndex == 9){
+        const char c = 13;
+        cmd->sendInput(&c);
+        cmd->currentUI = IN_CALL;
+        cmd->ui[IN_CALL]->draw();
+        cmd->gpsr->call(disp->content)    
+    }
+    
 }
 
 void SendText::envoke(){

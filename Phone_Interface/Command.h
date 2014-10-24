@@ -49,6 +49,7 @@ class Command {
       static SeeedStudioTFTv2 screen;
       UserInterface* ui[7];
       run_state isRunning;
+      static GPSR gpsr;
 };
 
 class Action{
@@ -74,9 +75,10 @@ class SwitchScreen : public Action{
 
 class MakeCall : public Action{
     Command *cmd;
+    Display *display;
   public:
     virtual void envoke();
-    MakeCall(Command *command) : cmd(command){};
+    MakeCall(Command *command, Display *disp) : cmd(command), disp(display){};
 };
 
 class SendText : public Action{
