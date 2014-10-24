@@ -98,23 +98,31 @@ void SwitchScreen::envoke(){
 
 void MakeCall::envoke(){
     // Here's where we answer the call
+    const char c = 13;
+    cmd->sendInput(&c);
     cmd->currentUI = IN_CALL;
     cmd->ui[IN_CALL]->draw();
 }
 
 void SendText::envoke(){
+    const char c = 13;
+    cmd->sendInput(&c);
     cmd->currentUI = MENU;
     cmd->ui[MENU]->draw();
 }
 
 void AnswerHasCall::envoke(){
-    // Here's where we answer the call
+    // Here's where we answer the call\
+    const char c = 13;
+    cmd->sendInput(&c);
     cmd->currentUI = IN_CALL;
     cmd->ui[IN_CALL]->draw();
 }
 
 void HangupCall::envoke(){
     // Here's where we hangup the call
+    const char c = 13;
+    cmd->sendInput(&c);
     cmd->currentUI = MENU;
     cmd->ui[MENU]->draw();
 }
