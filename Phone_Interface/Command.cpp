@@ -112,7 +112,9 @@ void MakeCall::envoke(){
 void WriteText::envoke(){
     cmd->pc.printf("%s\n", buffer);
     if(*length == 11){
-        cmd->cell->phoneNumber = buffer;
+        for(int i=0;i<11;++i)
+            cmd->curNumber[i] = buffer[i];
+
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = TYPER;
@@ -122,7 +124,7 @@ void WriteText::envoke(){
 
 void SendText::envoke(){
     cmd->pc.printf("number: %s message: %s\n",cmd->cell->phoneNumber, message);
-    cmd->cell->sendSMS(cmd->cell->phoneNumber, message);
+    cmd->cell->sendSMS(cmd->curNumber, message);
 
     const char c = 13;
     cmd->sendInput(&c);

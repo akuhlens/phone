@@ -51,6 +51,7 @@ class Command {
       UserInterface* ui[7];
       run_state isRunning;
       GPRS *cell;
+      char curNumber[11];
 };
 
 class Action{
