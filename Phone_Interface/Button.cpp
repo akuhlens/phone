@@ -131,7 +131,7 @@ void ActionButton::touch(point& p){
         
         // Don't do anything until keys is released the first time
         while(display->getPixel(p)); //spin until the key is unpressed
-
+        draw();
         // If the button needs to be redrawn the action should handle this
         act->envoke();
         
