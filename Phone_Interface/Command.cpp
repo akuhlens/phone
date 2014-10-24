@@ -44,7 +44,7 @@ Command::Command(){
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
-    //cell = new GPRS(D10, D2, 9600, "18123455508");
+    cell = new GPRS(D10, D2, 9600, "18123455508");
     //inititialize all of the components
     
 }
