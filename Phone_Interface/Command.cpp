@@ -97,15 +97,16 @@ void MakeCall::envoke(){
     cmd->pc.printf("%d\n",*count);
     cmd->pc.printf("%s\n",buffer);
     if(*count == 11){
+        char number[11];
+        for(int i=0;i<11;++i)
+            number[i] = buffer[i];
 
-        while(cmd->cell->readable())
-            cmd->cell->getc();
+        cmd->cell->call(number);
 
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
         cmd->ui[IN_CALL]->draw();
-        cmd->cell->call(buffer);
     }
     
 }
