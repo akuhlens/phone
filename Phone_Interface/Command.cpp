@@ -75,7 +75,7 @@ error_status Command::run(){
             ui[currentUI]->touch(p);
         }
     }
-    return OK;
+    return NO_ERROR;
 }
 
 void Action::envoke(){}
