@@ -44,9 +44,8 @@ Command::Command(){
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
-    cell = new GPSR();
+    cell = new GPRS(D10, D2, 9600, "18123455508");
     //inititialize all of the components
-    
     
 }
 
@@ -97,13 +96,11 @@ void MakeCall::envoke(){
     cmd->pc.printf("%d\n",*count);
     cmd->pc.printf("%s\n",buffer);
     if(*count == 11){
-        char number[11];
-        for(int i=0;i<11;++i)
-            number[i] = buffer[i];
+        // char number[11];
+        // for(int i=0;i<11;++i)
+        //     number[i] = buffer[i];
 
-        cmd->cell->getResponse(buffer, 256, 3);
-
-        cmd->cell->call(number);
+        cmd->cell->callUp(number);
 
         const char c = 13;
         cmd->sendInput(&c);
