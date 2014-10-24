@@ -16,8 +16,8 @@ Typer::Typer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14,
     Action *backspace = new Backspace(command);
     ActionButton *backspaceButton = new ActionButton(160, 270, 80, 50, backspace, "Back", command, display);
 
-    Action *call = new MakeCall(command);
-    ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, call, "Send", command, display);
+    Action *text = new SendText(command);
+    ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, text, "Send", command, display);
 
     Action *switchMenu = new SwitchScreen(command, MENU);
     ActionButton *back   = new ActionButton(0, 270, 80, 50, switchMenu, "Menu", command, display);
