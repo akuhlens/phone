@@ -13,6 +13,10 @@ Display::Display(int x, int y, int width, int height, Command *ctl, SeeedStudioT
     this->bgColor = Black;
     this->fgColor = White;
     this->bordorWidth = 4;
+
+    for(int i=0;i<256;++i)
+        content[i] = 0;
+
 }
       
 void Display::draw(){
