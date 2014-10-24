@@ -56,6 +56,14 @@ class Action{
     virtual void envoke();
 };
 
+class Backspace : public Action{
+    Command *cmd;
+  public:
+    virtual void envoke();
+    Backspace(Command *command) : cmd(command){};
+};
+
+
 class SwitchScreen : public Action{
     Command *cmd;
     int scrn;

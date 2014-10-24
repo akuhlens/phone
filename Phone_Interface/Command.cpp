@@ -80,7 +80,11 @@ error_status Command::run(){
 
 void Action::envoke(){}
 
-void SwitchScreen:: envoke(){
+void Backspace::envoke(){
+    cmd->sendInput('\b');
+}
+
+void SwitchScreen::envoke(){
     cmd->currentUI = scrn;
     cmd->ui[scrn]->draw();
 }

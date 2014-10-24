@@ -12,7 +12,9 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
     CharButton *cb7 = new CharButton(  0, 220, 80, 50, "7", '0',"pqr", command, display);
     CharButton *cb8 = new CharButton( 80, 220, 80, 50, "8", '0',"stu", command, display);
     CharButton *cb9 = new CharButton(160, 220, 80, 50, "9", '0',"vwx", command, display);
-    CharButton *backspace = new CharButton(160, 270, 80, 50, "Back", '\b',"", command, display);
+
+    Action *backspace = new Backspace(command);
+    ActionButton *backspaceButton = new ActionButton(160, 270, 80, 50, backspace, "Back", command, display);
 
     Action *call = new MakeCall(command);
     ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, call, "Call", command, display);
