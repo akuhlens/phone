@@ -12,6 +12,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(12 ,1
     CharButton *cb7 = new CharButton(  0, 220, 80, 50, "7", '0',"pqr", command, display);
     CharButton *cb8 = new CharButton( 80, 220, 80, 50, "8", '0',"stu", command, display);
     CharButton *cb9 = new CharButton(160, 220, 80, 50, "9", '0',"vwx", command, display);
+    CharButton *backspace = new CharButton(160, 270, 80, 50, "Back", '\b',"", command, display);
 
     Action *call = new MakeCall(command);
     ActionButton *makeCall   = new ActionButton(0,   80, 240, 40, call, "Call", command, display);
@@ -38,6 +39,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(12 ,1
     drawable[10] = disp;
     drawable[11] = makeCall;
     drawable[12] = back;
+    drawable[13] = backspace;
     
     touchable[0] = cb0;
     touchable[1] = cb1;
@@ -51,7 +53,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(12 ,1
     touchable[9] = cb9;
     touchable[10] = makeCall;
     touchable[11] = back;
-
+    touchable[12] = backspace;
     
     writeable[0] = disp;
 }
