@@ -114,8 +114,8 @@ void WriteText::envoke(){
         cmd->cell->phoneNumber = buffer;
         const char c = 13;
         cmd->sendInput(&c);
-        cmd->currentUI = MENU;
-        cmd->ui[MENU]->draw();    
+        cmd->currentUI = TYPER;
+        cmd->ui[TYPER]->draw();    
     }
 }
 
