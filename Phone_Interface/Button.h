@@ -32,7 +32,7 @@ class CharButton: public Button {
 class NumButton: public Button {
     public:
      virtual void touch(point& p);
-     virtual void draw();
+     //virtual void draw();
      NumButton(int x, int y, int width, int height, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
 };
 
