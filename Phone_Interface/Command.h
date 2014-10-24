@@ -84,11 +84,22 @@ class MakeCall : public Action{
     MakeCall(Command *command, int * c, char * b) : cmd(command), count(c), buffer(b){};
 };
 
-class SendText : public Action{
+class WriteText : public Action{
     Command *cmd;
+    int *length;
+    char *buffer;
   public:
     virtual void envoke();
-    SendText(Command *command) : cmd(command){};
+    WriteText(Command *command, int *l, char *b) : cmd(command),length(l),buffer(b) {};
+};
+
+
+class SendText : public Action{
+    Command *cmd;
+    char *message;
+  public:
+    virtual void envoke();
+    SendText(Command *command,char *m) : cmd(command), message(m){};
 };
 
 class AnswerHasCall : public Action{

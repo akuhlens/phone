@@ -85,8 +85,8 @@ void Backspace::envoke(){
 }
 
 void SwitchScreen::envoke(){
-    const char c = 13;
-    cmd->sendInput(&c);
+    //const char c = 13;
+    //cmd->sendInput(&c);
     cmd->currentUI = scrn;
     cmd->ui[scrn]->draw();
 }
@@ -109,7 +109,19 @@ void MakeCall::envoke(){
     
 }
 
+void WriteText::envoke(){
+    if(*length == 11){
+        cmd->cell->phoneNumber = buffer;
+        const char c = 13;
+        cmd->sendInput(&c);
+        cmd->currentUI = MENU;
+        cmd->ui[MENU]->draw();    
+    }
+}
+
 void SendText::envoke(){
+    cmd->cell->sendSMS(cmd->cell->phoneNumber, message);
+
     const char c = 13;
     cmd->sendInput(&c);
     cmd->currentUI = MENU;

@@ -13,10 +13,12 @@ Texter::Texter(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
     CharButton *cb8 = new CharButton( 80, 220, 80, 50, "8", '0',"", command, display);
     CharButton *cb9 = new CharButton(160, 220, 80, 50, "9", '0',"", command, display);
 
+    Display *disp = new Display(0,0,240,80,command,display);
+
     Action *backspace = new Backspace(command);
     ActionButton *backspaceButton = new ActionButton(160, 270, 80, 50, backspace, "Back", command, display);
 
-    Action *switchTyper = new SwitchScreen(command, TYPER);
+    Action *switchTyper = new WriteText(command, &(disp->contentIndex),disp->content);
     ActionButton *typer = new ActionButton(0, 80, 240, 40, switchTyper, "Text", command, display);
 
     Action *switchMenu = new SwitchScreen(command, MENU);
@@ -24,7 +26,7 @@ Texter::Texter(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
 
     //ModeButton *enter = new modeButton(50, 50, 50, 50, "Enter", command, display);
         
-    Display *disp = new Display(0,0,240,80,command,display);
+    
     
     //this->disp = disp;
     
