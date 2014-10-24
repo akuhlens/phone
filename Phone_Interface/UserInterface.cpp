@@ -17,7 +17,7 @@ void UserInterface::touch(point& p){
 
 void UserInterface::draw(){
   
-  //screen->cls();
+  screen->cls();
   screen->fill(0,0,240,340, 0xFFFF);
   
   for(int i = 0; i < numberDrawable; i++){
