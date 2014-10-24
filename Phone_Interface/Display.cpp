@@ -1,7 +1,7 @@
 #include "Display.h"
 #include "Arial12x12.h"
 
-Display::Display(int x, int y, int width, int height, SeeedStudioTFTv2 *display){
+Display::Display(int x, int y, int width, int height, Command *ctl, SeeedStudioTFTv2 *display){
     this->x = x;
     this->y = y;
     this->width = width;

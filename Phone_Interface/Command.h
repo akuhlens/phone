@@ -4,7 +4,7 @@
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
 #include "UserInterface.h"
 #include "gpsr.h"
-#include "Display.h"
+// #include "Display.h"
 
 // The Configuation for the sceen device
 // Touch pins
@@ -76,7 +76,9 @@ class SwitchScreen : public Action{
 
 class MakeCall : public Action{
     Command *cmd;
-    Display *display;
+    int *count;
+    char *buffer;
+    // Display *display;
   public:
     virtual void envoke();
     MakeCall(Command *command, Display *disp) : cmd(command), disp(display){};

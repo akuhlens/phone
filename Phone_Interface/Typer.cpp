@@ -24,7 +24,7 @@ Typer::Typer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14,
 
     //ModeButton *enter = new modeButton(50, 50, 50, 50, "Enter", command, display);
         
-    Display *disp = new Display(0,0,240,80,display);
+    Display *disp = new Display(0,0,240,80,command,display);
     
     //this->disp = disp;
     
