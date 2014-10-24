@@ -22,6 +22,12 @@ CharButton::CharButton(int x, int y, int width, int height, const char* label, c
     disp->locate(0,0);
 }
 
+NumButton::NumButton(int x, int y, int width, int height, const char* label, Command *ctl, SeeedStudioTFTv2 *disp) : Button(x, y, width, height, label, ctl, disp)
+{
+    disp->locate(0,0);
+}
+
+
 CommandButton::CommandButton(int x, int y, int width, int height, commands cmd, const char* label, Command *ctl, SeeedStudioTFTv2 *disp) : Button(x, y, width, height, label, ctl, disp)
 {
     this->command = cmd;
@@ -91,6 +97,28 @@ void CharButton::touch(point& p){
 
    }
 }
+
+void NumButton::touch(point& p){
+    if ((x < p.x) && (p.x < (x + width)) &&  y < p.y && p.y < (y + height)){
+        
+        // invert the colors while the button is held
+        int bg = this->bgColor;
+        int fg = this->fgColor;
+        bgColor = fg;
+        fgColor = bg;
+        
+        this->controller->sendInput(this->label);
+        
+        draw();
+        
+        while(display->getPixel(p)); //spin until the key is unpressed
+        
+        bgColor = bg;
+        fgColor = fg;
+        draw();
+   }
+}
+
 
 void CommandButton::touch(point& p){
     if ((x < p.x) && (p.x < (x + width)) &&  y < p.y && p.y < (y + height)){    
