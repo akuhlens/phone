@@ -94,13 +94,13 @@ void SwitchScreen::envoke(){
 
 void MakeCall::envoke(){
     // Here's where we answer the call
-    //if(disp->contentIndex == 9){
+    if(*count == 9){
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
         cmd->ui[IN_CALL]->draw();
-    //    cmd->cell->call(disp->content)    
-    //}
+        cmd->cell->call(buffer)    
+    }
     
 }
 
