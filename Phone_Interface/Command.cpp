@@ -94,6 +94,7 @@ void SwitchScreen::envoke(){
 
 void MakeCall::envoke(){
     // Here's where we answer the call
+    buffer += 2;
     cmd->pc.printf("%d\n",*count);
     cmd->pc.printf("%s\n",buffer);
     if(*count == 10){
