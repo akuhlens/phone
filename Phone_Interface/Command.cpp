@@ -96,7 +96,7 @@ void MakeCall::envoke(){
     // Here's where we answer the call
     cmd->pc.printf("%d\n",*count);
     cmd->pc.printf("%s\n",buffer);
-    if(*count == 9){
+    if(*count == 10){
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
