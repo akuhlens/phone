@@ -81,7 +81,7 @@ error_status Command::run(){
 void Action::envoke(){}
 
 void Backspace::envoke(){
-    cmd->sendInput('\b');
+    cmd->sendInput(&'\b');
 }
 
 void SwitchScreen::envoke(){
