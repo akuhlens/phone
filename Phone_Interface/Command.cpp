@@ -98,8 +98,8 @@ void MakeCall::envoke(){
     cmd->pc.printf("%s\n",buffer);
     if(*count == 11){
 
-        while(cell->readable())
-            cell->getc();
+        while(cmd->cell->readable())
+            cmd->cell->getc();
 
         const char c = 13;
         cmd->sendInput(&c);
