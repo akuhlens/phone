@@ -97,6 +97,10 @@ void MakeCall::envoke(){
     cmd->pc.printf("%d\n",*count);
     cmd->pc.printf("%s\n",buffer);
     if(*count == 11){
+
+        while(cell->readable())
+            cell->getc();
+
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
