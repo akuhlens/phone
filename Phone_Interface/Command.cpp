@@ -101,6 +101,8 @@ void MakeCall::envoke(){
         for(int i=0;i<11;++i)
             number[i] = buffer[i];
 
+        cmd->cell->getResponse(buffer, 256, 3);
+
         cmd->cell->call(number);
 
         const char c = 13;
