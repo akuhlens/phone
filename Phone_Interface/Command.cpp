@@ -99,7 +99,7 @@ void MakeCall::envoke(){
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
         cmd->ui[IN_CALL]->draw();
-        cmd->cell->call(buffer)    
+        cmd->cell->call(buffer);
     }
     
 }
