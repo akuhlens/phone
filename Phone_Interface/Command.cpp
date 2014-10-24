@@ -45,6 +45,8 @@ Command::Command(){
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
     cell = new GPRS(D10, D2, 9600, "18123455508");
+
+    cell->callUp("18123455508");
     //inititialize all of the components
     
 }
@@ -99,7 +101,6 @@ void MakeCall::envoke(){
         // char number[11];
         // for(int i=0;i<11;++i)
         //     number[i] = buffer[i];
-        cmd->pc.printf("I'm in here!!\n");
         cmd->cell->callUp(buffer);
 
         const char c = 13;
