@@ -100,7 +100,7 @@ void MakeCall::envoke(){
         // for(int i=0;i<11;++i)
         //     number[i] = buffer[i];
 
-        cmd->cell->callUp(number);
+        cmd->cell->callUp(buffer);
 
         const char c = 13;
         cmd->sendInput(&c);
