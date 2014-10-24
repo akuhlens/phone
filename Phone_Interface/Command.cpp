@@ -112,7 +112,7 @@ void MakeCall::envoke(){
 void WriteText::envoke(){
     cmd->pc.printf("%s\n", buffer);
     if(*length == 11){
-        for(int i=0;i<10;++i)
+        for(int i=0;i<11;++i)
             cmd->curNumber[i] = buffer[i];
         cmd->curNumber[10] = '\0';
         const char c = 13;
