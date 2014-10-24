@@ -123,7 +123,7 @@ void WriteText::envoke(){
 }
 
 void SendText::envoke(){
-    cmd->pc.printf("number: %s message: %s\n",cmd->cell->phoneNumber, message);
+    cmd->pc.printf("number: %s message: %s\n",cmd->curNumber, message);
     cmd->cell->sendSMS(cmd->curNumber, message);
 
     const char c = 13;
