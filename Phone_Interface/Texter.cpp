@@ -17,7 +17,7 @@ Texter::Texter(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
     ActionButton *backspaceButton = new ActionButton(160, 270, 80, 50, backspace, "Back", command, display);
 
     Action *switchTyper = new SwitchScreen(command, TYPER);
-    ActionButton *typer = new ActionButton(0, 80, 240, 40, call, "Text", command, display);
+    ActionButton *typer = new ActionButton(0, 80, 240, 40, switchTyper, "Text", command, display);
 
     Action *switchMenu = new SwitchScreen(command, MENU);
     ActionButton *back   = new ActionButton(0, 270, 80, 50, switchMenu, "Menu", command, display);
