@@ -44,7 +44,7 @@ Command::Command(){
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
-    gpsr = new GPSR();
+    cell = new GPSR();
     //inititialize all of the components
     
     
@@ -99,7 +99,7 @@ void MakeCall::envoke(){
         cmd->sendInput(&c);
         cmd->currentUI = IN_CALL;
         cmd->ui[IN_CALL]->draw();
-        cmd->gpsr->call(disp->content)    
+        cmd->cell->call(disp->content)    
     }
     
 }

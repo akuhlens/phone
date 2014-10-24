@@ -3,7 +3,7 @@
 #include "mbed.h"
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
 #include "UserInterface.h"
-
+#include "gpsr.h"
 
 // The Configuation for the sceen device
 // Touch pins
@@ -49,7 +49,7 @@ class Command {
       static SeeedStudioTFTv2 screen;
       UserInterface* ui[7];
       run_state isRunning;
-      static GPSR gpsr;
+      GPSR *cell;
 };
 
 class Action{
