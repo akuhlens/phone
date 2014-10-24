@@ -29,6 +29,13 @@ class CharButton: public Button {
      CharButton(int x, int y, int width, int height, const char* label, char value, const char *subValue, Command *ctl, SeeedStudioTFTv2 *display);
 };
 
+class NumButton: public Button {
+    public:
+     virtual void touch(point& p);
+     virtual void draw();
+     NumButton(int x, int y, int width, int height, const char* label, Command *ctl, SeeedStudioTFTv2 *display);
+};
+
 class CommandButton: public Button {
     private:
       commands command;
