@@ -4,6 +4,7 @@
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
 #include "UserInterface.h"
 #include "gpsr.h"
+#include "Display.h"
 
 // The Configuation for the sceen device
 // Touch pins
