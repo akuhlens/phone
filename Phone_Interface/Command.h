@@ -31,7 +31,7 @@
 #define IN_CALL 6
 
 typedef enum{HALTED, RUNNING} run_state;
-typedef enum{OK, UNDEFINED_ERROR} error_status;
+typedef enum{NO_ERROR, UNDEFINED_ERROR} error_status;
 typedef enum{GOTO_MENU, GOTO_DIALER, GOTO_TEXTER, GOTO_TYPER, GOTO_VIEW_TEXT, HANGUP_GOTO_MENU, ANSWER_GOTO_IN_CALL} commands;
 
 void fixpoint_orientation(point& p);
