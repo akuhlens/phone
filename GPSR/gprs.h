@@ -176,7 +176,7 @@ public:
 
     Serial gprsSerial;
     //USBSerial pc;
-
+    char *phoneNumber;
 private:
     /** read from GPRS module and save to buffer array
      *  @param  *buffer buffer array to save what read from GPRS module
@@ -212,7 +212,7 @@ private:
     int sendCmdAndWaitForResp(char *cmd, char *resp, int timeout);
 
     Timer timeCnt;
-    char *phoneNumber;
+    
     char messageBuffer[SMS_MAX_LENGTH];
 };
 
