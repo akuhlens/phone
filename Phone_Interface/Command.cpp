@@ -2,6 +2,8 @@
 #include "Arial12x12.h"
 #include "Dialer.h"
 #include "Menu.h"
+#include "Texter.h"
+#include "Typer.h"
 #include "HasCall.h"
 #include "InCall.h"
 
@@ -34,6 +36,8 @@ Command::Command(){
     //1.3.1 Create the various screens 
     ui[MENU]    = new Menu(this, &screen);
     ui[DIALER]  = new Dialer(this, &screen);
+    ui[TEXTER]  = new Texter(this, &screen);
+    ui[TYPER]   = new Typer(this, &screen);
     ui[HAS_CALL]= new HasCall(this, &screen);
     ui[IN_CALL] = new InCall(this, &screen);
     // Calibrate the screen
