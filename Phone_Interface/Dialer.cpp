@@ -41,7 +41,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
     drawable[10] = disp;
     drawable[11] = makeCall;
     drawable[12] = back;
-    drawable[13] = backspace;
+    drawable[13] = backspaceButton;
     
     touchable[0] = cb0;
     touchable[1] = cb1;
@@ -55,7 +55,7 @@ Dialer::Dialer(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,1
     touchable[9] = cb9;
     touchable[10] = makeCall;
     touchable[11] = back;
-    touchable[12] = backspace;
+    touchable[12] = backspaceButton;
     
     writeable[0] = disp;
 }
