@@ -112,9 +112,9 @@ void MakeCall::envoke(){
 void WriteText::envoke(){
     cmd->pc.printf("%s\n", buffer);
     if(*length == 11){
-        for(int i=0;i<11;++i)
+        for(int i=0;i<9;++i)
             cmd->curNumber[i] = buffer[i];
-
+        curNumber[10] = '\0';
         const char c = 13;
         cmd->sendInput(&c);
         cmd->currentUI = TYPER;
