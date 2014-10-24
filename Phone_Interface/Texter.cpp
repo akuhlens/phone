@@ -2,16 +2,16 @@
 #include "Display.h"
 
 Texter::Texter(Command *command, SeeedStudioTFTv2 *display): UserInterface(13 ,14, 1, display){
-    CharButton *cb0 = new CharButton( 80, 270, 80, 50, "0", '0',"", command, display);
-    CharButton *cb1 = new CharButton(  0, 120, 80, 50, "1", '0',"", command, display);
-    CharButton *cb2 = new CharButton( 80, 120, 80, 50, "2", '0',"", command, display);
-    CharButton *cb3 = new CharButton(160, 120, 80, 50, "3", '0',"", command, display);
-    CharButton *cb4 = new CharButton(  0, 170, 80, 50, "4", '0',"", command, display);
-    CharButton *cb5 = new CharButton( 80, 170, 80, 50, "5", '0',"", command, display);
-    CharButton *cb6 = new CharButton(160, 170, 80, 50, "6", '0',"", command, display);
-    CharButton *cb7 = new CharButton(  0, 220, 80, 50, "7", '0',"", command, display);
-    CharButton *cb8 = new CharButton( 80, 220, 80, 50, "8", '0',"", command, display);
-    CharButton *cb9 = new CharButton(160, 220, 80, 50, "9", '0',"", command, display);
+    NumButton *cb0 = new NumButton( 80, 270, 80, 50, "0", command, display);
+    NumButton *cb1 = new NumButton(  0, 120, 80, 50, "1", command, display);
+    NumButton *cb2 = new NumButton( 80, 120, 80, 50, "2", command, display);
+    NumButton *cb3 = new NumButton(160, 120, 80, 50, "3", command, display);
+    NumButton *cb4 = new NumButton(  0, 170, 80, 50, "4", command, display);
+    NumButton *cb5 = new NumButton( 80, 170, 80, 50, "5", command, display);
+    NumButton *cb6 = new NumButton(160, 170, 80, 50, "6", command, display);
+    NumButton *cb7 = new NumButton(  0, 220, 80, 50, "7", command, display);
+    NumButton *cb8 = new NumButton( 80, 220, 80, 50, "8", command, display);
+    NumButton *cb9 = new NumButton(160, 220, 80, 50, "9", command, display);
 
     Display *disp = new Display(0,0,240,80,command,display);
 
