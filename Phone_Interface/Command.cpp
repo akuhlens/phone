@@ -94,8 +94,8 @@ void SwitchScreen::envoke(){
 
 void MakeCall::envoke(){
     // Here's where we answer the call
-    pc.printf("%d\n",*count);
-    pc.printf("%s\n",buffer);
+    this->pc.printf("%d\n",*count);
+    this->pc.printf("%s\n",buffer);
     if(*count == 9){
         const char c = 13;
         cmd->sendInput(&c);
