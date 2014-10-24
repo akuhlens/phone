@@ -14,7 +14,7 @@ Command::Command(){
     //1 initialize screen settings
     //1.1 Configure the background
     screen.background(Black);
-    screen.foreground(Black);
+    screen.foreground(White);
     screen.cls();
     
     
