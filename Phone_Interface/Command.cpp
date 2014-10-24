@@ -90,6 +90,8 @@ void Backspace::envoke(){
 }
 
 void SwitchScreen::envoke(){
+    const char c = 13;
+    cmd->sendInput(&c);
     cmd->currentUI = scrn;
     cmd->ui[scrn]->draw();
 }

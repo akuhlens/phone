@@ -14,7 +14,7 @@ class Display: public Drawable, public Writeable{
 
     public:
       virtual void sendInput(const char *c);
-      //virtual void deleteInput(int n);
+      // virtual void clear();
       virtual void draw();
       Display(int x, int y, int width, int height, Command *ctl, SeeedStudioTFTv2 *display);
 };
