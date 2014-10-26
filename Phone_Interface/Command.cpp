@@ -44,8 +44,24 @@ Command::Command(){
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
+    
+    
+    // 1.4 Get a cellular connection
     cell = new GPRS(D10, D2, 9600, "18123455508");
-    //inititialize all of the components
+    
+    if(cell->powerCheck() != 0){
+      DigitalOut cell_power(CELL_POWER_TOGGLE_PIN);
+      cell_power = 0;
+      wait(1);
+      cell_power = 1;
+      wait(1);
+      cell_power = 0;
+    }
+    
+    if(cell->init() != 0){
+      pc.puts("\n\rSomething is funny with the modem\n\r");
+    }
+    
     
 }
 

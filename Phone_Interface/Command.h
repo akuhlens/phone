@@ -5,7 +5,8 @@
 #include "UserInterface.h"
 #include "gprs.h"
 // #include "Display.h"
-
+// GPRS Module Settings specific to our setup
+#define CELL_POWER_TOGGLE_PIN D9
 // The Configuation for the sceen device
 // Touch pins
 #define PIN_XP          A3
@@ -30,6 +31,7 @@
 #define VIEW_TEXT 4
 #define HAS_CALL 5
 #define IN_CALL 6
+
 
 typedef enum{HALTED, RUNNING} run_state;
 typedef enum{NO_ERROR, UNDEFINED_ERROR} error_status;
