@@ -205,7 +205,7 @@ int GPRS::readSMS(char *message, int index)
                 else message[i++] = '.';
                 p++;
             }else if(*p == ','){
-                message[i++] = '';
+                message[i++] = '.';
                 p++;
             }else{
                 message[i++] = *(p++);
