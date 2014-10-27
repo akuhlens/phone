@@ -247,7 +247,7 @@ void NextText::envoke(){
     char number[12] = {0};
     char buffer[256] = {0};
     if(!cmd->cell->readSMS(number, buffer, *index) && *number){
-        sprintf("From %s\n\r%s"number,buffer, buff)
+        sprintf("From %s\n\r%s"number,buffer, buff);
         *index += 1;
         cmd->ui[cmd->currentUI]->draw();
     }
