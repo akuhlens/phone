@@ -134,12 +134,12 @@ class NextText : public Action{
 
 class PrevText : public Action{
   public:
-    Command * _command;
-    int * _state;
-    char *_buffer;
+    Command * cmd;
+    int *index;
+    char *buff;
     virtual void envoke();
     PrevText(Command *command, int *state, char* buffer) 
-      : _command(command), _state(state), _buffer(buffer) {};
+      : cmd(command), index(state), buff(buffer) {};
   
 };
 
