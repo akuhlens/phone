@@ -194,7 +194,7 @@ int GPRS::readSMS(char *message, int index)
         return -1;
     }
     
-    printf("%s\n\r",gprsBuffer);
+    //printf("%s\n\r",gprsBuffer);
     
     if(NULL != ( s = strstr(gprsBuffer,"$$$$") +4 )) {
         // puts("in if statement\n\r");
