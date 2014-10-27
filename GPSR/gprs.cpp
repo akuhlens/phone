@@ -201,6 +201,7 @@ int GPRS::readSMS(char *number, char *message, int index)
             number[i++] = *(p++);
         }
         number[i] = '\0';
+        printf("number == %s\n",number );
     }
     i = 0;
     if(NULL != ( s = strstr(gprsBuffer,"$$$$") +4 )) {
@@ -214,6 +215,7 @@ int GPRS::readSMS(char *number, char *message, int index)
             }
         }
         message[i] = '\0';
+        printf("message == %s\n",message );
     }
 
     return 0;
