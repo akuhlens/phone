@@ -254,10 +254,13 @@ void NextText::envoke(){
 }
 
 void PrevText::envoke(){
-    //int prevState = _state;
-    // if(! _command->cell->readSMS(_buffer, (*_state) - 1)){
-    //   *_state -= 1;
-    // }
-    // _command->ui[_command->currentUI]->draw();
+    char number[12] = {0};
+    char buffer[256] = {0};
+
+    if(*index > 0 && !cmd->cell->readSMS(number, buffer, *index) && *number && buffer){
+        sprintf(buff, "From: %s\n\r\n\rMessage:\n\r%s",number,buffer);
+        *index -= 1;
+        cmd->ui[cmd->currentUI]->draw();
+    }
 }
 
