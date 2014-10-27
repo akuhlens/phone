@@ -10,8 +10,8 @@ Display::Display(int x, int y, int width, int height, Command *ctl, SeeedStudioT
     this->contentIndex = 0;
     this->controller = ctl;
     this->display = display;
-    this->bgColor = Black;
-    this->fgColor = White;
+    this->bgColor = DarkGrey;
+    this->fgColor = GreenYellow;
     this->bordorWidth = 0;
 
     for(int i=0;i<256;++i)
@@ -20,13 +20,13 @@ Display::Display(int x, int y, int width, int height, Command *ctl, SeeedStudioT
 }
       
 void Display::draw(){
-    for(int i=0;i<bordorWidth;++i)
-        display->rect(x+i,y+i,x+width-i,y+height-i,fgColor);
-    display->fillrect(x+bordorWidth,y+bordorWidth,x+width-bordorWidth,y+height-bordorWidth,bgColor);
+    // for(int i=0;i<bordorWidth;++i)
+        // display->rect(x+i,y+i,x+width-i,y+height-i,fgColor);
     
     display->locate(x,y);
     display->background(bgColor);
     display->foreground(fgColor);
+    display->fillrect(x,y,x+width,y+height,bgColor);
     display->set_font((unsigned char*) Arial12x12);
     display->printf("%s\n",content);
     //display->character(x+(width/2)-6,y+(height/2)-6,);

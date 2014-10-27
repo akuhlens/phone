@@ -50,7 +50,9 @@ void CharButton::draw(){
 void Button::draw(){
     display->fillrect(x, y, x+width,y+height,bgColor);
     display->rect(x+bordorWidth,y+bordorWidth,x+width-bordorWidth,y+height-bordorWidth,fgColor);
-    display->locate(x+(width/2)-6,y+(height/2)-6);
+    
+    int l = strlen(label)/2;
+    display->locate(x+(width/2)-6*l,y+(height/2)-6);
     display->background(bgColor);
     display->foreground(fgColor);
     display->set_font((unsigned char*) Arial12x12);

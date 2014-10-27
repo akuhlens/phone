@@ -3,15 +3,16 @@
 
 ViewTexts::ViewTexts(Command *command, SeeedStudioTFTv2 *display): UserInterface(3 ,4, 1, display){
 
-    static int index = 6;
-
+    static int index = 3;
     Display *disp = new Display(0,0,240,240,command,display);
+
+    sprintf(disp->content, "Welcome to the view texts \n\rscreen, please use the previousand next buttons to navigate\n\r");
     
     Action *menuAct = new SwitchScreen(command, MENU);
     ActionButton *menu = new ActionButton(0, 240, 80, 80, menuAct, "Menu", command, display);
 
     Action *previousText = new PrevText(command, &index, disp->content);
-    ActionButton *pText = new ActionButton(80, 240, 80, 80, previousText, "Previous", command, display);
+    ActionButton *pText = new ActionButton(80, 240, 80, 80, previousText, "Prev", command, display);
 
     Action *nextText = new NextText(command, &index, disp->content);
     ActionButton *nText   = new ActionButton(160, 240, 80, 80, nextText, "Next", command, display);
