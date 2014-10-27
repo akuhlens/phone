@@ -244,7 +244,7 @@ void HangupCall::envoke(){
 
 
 void NextText::envoke(){
-    if(!_command->cell->readSMS(_buffer, (*_state)++){
+    if(!_command->cell->readSMS(_buffer, (*_state)++)) {
         _command->pc.printf("%s\n\r", _buffer);
         _command->ui[_command->currentUI]->draw();    
     }
