@@ -244,9 +244,12 @@ void HangupCall::envoke(){
 
 
 void NextText::envoke(){
-    _command->pc.printf("state == %d\n\r",*_state);
-    _command->cell->readSMS(_buffer, 6); 
+    // _command->pc.printf("state == %d\n\r",);
+    int index = *_state;
+    _command->cell->readSMS(_buffer, index); 
     _command->pc.printf("%s\n\r", _buffer);
+    index +=1;
+    *_state = index;
     // *_state += 1;
     _command->ui[_command->currentUI]->draw();
 }
