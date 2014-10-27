@@ -124,7 +124,7 @@ class HangupCall : public Action{
 class NextText : public Action{
   public:
     Command * cmd;
-    int * index;
+    int *index;
     char *buff;
     virtual void envoke();
     NextText(Command *command, int *state, char* buffer) 
