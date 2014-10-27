@@ -246,8 +246,8 @@ void HangupCall::envoke(){
 void NextText::envoke(){
     char number[12] = {0};
     char buffer[256] = {0};
-    if(!cmd->cell->readSMS(number, buffer, *index) && *number){
-        sprintf(buff, "From: %s\n\r\n\r Message: %s",number,buffer);
+    if(!cmd->cell->readSMS(number, buffer, *index) && *number && buffer){
+        sprintf(buff, "From: %s\n\r\n\rMessage: %s",number,buffer);
         *index += 1;
         cmd->ui[cmd->currentUI]->draw();
     }
