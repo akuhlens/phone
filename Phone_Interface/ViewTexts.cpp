@@ -10,10 +10,10 @@ ViewTexts::ViewTexts(Command *command, SeeedStudioTFTv2 *display): UserInterface
     Action *backspace = new Backspace(command);
     ActionButton *backspaceButton = new ActionButton(0, 240, 80, 80, backspace, "Back", command, display);
 
-    Action *previousText = new PrevText(command, &index);
+    Action *previousText = new PrevText(command, &index, disp);
     ActionButton *pText = new ActionButton(80, 240, 80, 80, previousText, "Previous", command, display);
 
-    Action *nextText = new NextText(command, &index);
+    Action *nextText = new NextText(command, &index, disp);
     ActionButton *nText   = new ActionButton(160, 240, 80, 80, nextText, "Next", command, display);
 
     drawable[0] = disp;
