@@ -194,10 +194,10 @@ int GPRS::readSMS(char *message, int index)
         return -1;
     }
     
-    puts(gprsBuffer);
+    //puts(gprsBuffer);
     
     if(NULL != ( s = strstr(gprsBuffer,"+CMGR"))) {
-        p = s + 54;
+        p = s + 74;
         while((*p != '$')&&(i < SMS_MAX_LENGTH-1)) {
             message[i++] = *(p++);
         }
