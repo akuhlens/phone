@@ -198,7 +198,7 @@ int GPRS::readSMS(char *message, int index)
     
     if(NULL != ( s = strstr(gprsBuffer,"$$$$"))) {
         puts("in if statement\n\r");
-        p = strstr(s, "$$") + 2;
+        p = strstr(s, "$$") + 4;
         while((*p != '$')&&(i < SMS_MAX_LENGTH-1)) {
             message[i++] = *(p++);
         }
