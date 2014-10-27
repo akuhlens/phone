@@ -244,25 +244,8 @@ void HangupCall::envoke(){
 
 
 void NextText::envoke(){
-    //int prevState = _state;
-    // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, _buffer, *_state);
-    char buffer[300] = {0};
-    // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
-    _command->cell->readSMS(_buffer, 6);
+    _command->cell->readSMS(_buffer, (*_state));
     _command->pc.printf("%s\n\r", _buffer);
-    // _command->cell->readSMS(buffer, 7);
-    // _command->pc.printf("%s\n\r", buffer);
-    // _command->cell->readSMS(buffer, 8);
-    // _command->pc.printf("%s\n\r", buffer);
-    // _command->cell->readSMS(buffer, 9);
-    // _command->pc.printf("%s\n\r", buffer);
-    // _command->cell->readSMS(buffer, 10);
-    // _command->pc.printf("%s\n\r", buffer);
-    // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
-    // if(-1 ==_command->cell->readSMS(buffer, 5)){
-      //(*_state) += 1;
-     // _command->pc.printf("\n\rneg\r\n", _command, buffer, *_state);
-    // }
 
     _command->ui[_command->currentUI]->draw();
     // _command->pc.printf("\n\rnext_text 3: %p %s %d\r\n", _command, _buffer, *_state);
