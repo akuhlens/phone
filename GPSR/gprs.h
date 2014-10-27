@@ -99,7 +99,7 @@ public:
      *      0 on success
      *      -1 on error
      */
-    int readSMS(char *message, int index);
+    int readSMS(char *number, char *message, int index);
 
     /** delete SMS message on SIM card
      *  @param  *index    the index number which SMS message will be delete
