@@ -240,3 +240,18 @@ void HangupCall::envoke(){
     cmd->ui[cmd->currentUI]->draw();
 }
 
+
+void NextText::envoke(){
+    //int prevState = _state;
+    if(! cmd->cell->readSMS(_display->content, _state + 1)){
+      _state++;
+    }
+}
+
+void PrevText::envoke(){
+    //int prevState = _state;
+    if(! cmd->cell->readSMS(_display->content, _state - 1)){
+      _state--;
+    }
+}
+

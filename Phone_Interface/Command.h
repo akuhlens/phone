@@ -4,7 +4,7 @@
 #include "SeeedStudioTFTv2/SeeedStudioTFTv2.h"
 #include "UserInterface.h"
 #include "gprs.h"
-// #include "Display.h"
+#include "Display.h"
 // GPRS Module Settings specific to our setup
 #define CELL_POWER_TOGGLE_PIN D9
 // The Configuation for the sceen device
@@ -117,6 +117,28 @@ class HangupCall : public Action{
   public:
     virtual void envoke();
     HangupCall(Command *command) : cmd(command){};
+};
+
+class NextText : public Action{
+  public:
+    Command * _command;
+    int * _state;
+    Display *_display;
+    virtual void envoke();
+    NextText(Command *command, int *state, Display *display) 
+      : _command(command), _state(state),  _display(display) {};
+  
+};
+
+class PrevText : public Action{
+  public:
+    Command * _command;
+    int * _state;
+    Display *_display;
+    virtual void envoke();
+    PrevText(Command *command, int *state, Display *display) 
+      : _command(command), _state(state), _display(display) {};
+  
 };
 
 #endif
