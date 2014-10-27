@@ -27,7 +27,7 @@
 #include "mbed.h"
 
 #define DEFAULT_TIMEOUT         5
-#define SMS_MAX_LENGTH          16
+#define SMS_MAX_LENGTH          256
 
 
 enum GPRS_MESSAGE {
