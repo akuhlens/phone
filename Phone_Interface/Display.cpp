@@ -12,7 +12,7 @@ Display::Display(int x, int y, int width, int height, Command *ctl, SeeedStudioT
     this->display = display;
     this->bgColor = Black;
     this->fgColor = White;
-    this->bordorWidth = 4;
+    this->bordorWidth = 0;
 
     for(int i=0;i<256;++i)
         content[i] = 0;
