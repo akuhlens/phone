@@ -202,6 +202,7 @@ int GPRS::readSMS(char *message, int index)
         while((*p != '$')&&(i < SMS_MAX_LENGTH-1)&&*p >= ' ' && *p <= 'z') {
             if(*p <= '/'){
                 message[i++] = ' ';
+                p++;
             }else{
                 message[i++] = *(p++);
             }
