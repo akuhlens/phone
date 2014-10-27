@@ -76,13 +76,21 @@ void fixpoint_orientation(point& p){
 }
 
 error_status Command::run(){
+    // A buffer that will never go away;
+    char buffer[100];
+    static const int bufferLen = sizeof(buffer);
+    memset(buffer, 0 , bufferLen);
+
+
+    Timer timeCnt;
+
     point p; //= (point*) malloc(sizof(point));
     p.x = 0;
     p.y = 0;
 
-    char gprsBuffer[100];
+    
     int i;
-    char *s = NULL;
+    //char *s = NULL;
     
 
     ui[currentUI]->draw();
@@ -92,9 +100,9 @@ error_status Command::run(){
     }
     wait(0.5);
   
-    START:
+    //START:
   
-    cell->cleanBuffer(gprsBuffer,100);
+    memset(buffer, 0 , bufferLen);
     i = 0;
     while(1) {
 
@@ -109,9 +117,14 @@ error_status Command::run(){
             while(1) {
                 while (cell->gprsSerial.readable()) {
                     char c = cell->gprsSerial.getc();
-                    if (c == '\r' || c == '\n') c = '$';
-                    gprsBuffer[i] = c;
+                    
+                    if (c == '\r' || c == '\n'){
+                       c = '$';
+                    }
+                    
+                    buffer[i] = c;
                     i++;
+                    
                     if(i > 100) {
                         i = 0;
                         break;
@@ -125,12 +138,12 @@ error_status Command::run(){
             }
 
 
-            if(NULL != strstr(gprsBuffer,"RING")) {
-                cmd->currentUI = scrn;
-                cmd->ui[scrn]->draw();
+            if(NULL != strstr(buffer,"RING")) {
+                currentUI = HAS_CALL;
+                ui[currentUI]->draw();
             }
 
-            cell->cleanBuffer(gprsBuffer,100);
+            memset(buffer, 0 , bufferLen);
             i = 0;
         }
     }
@@ -222,9 +235,8 @@ void AnswerHasCall::envoke(){
 
 void HangupCall::envoke(){
     // Here's where we hangup the call
-    const char c = 13;
-    cmd->sendInput(&c);
+    cmd->cell->gprsSerial.puts("ATH\r\n");
     cmd->currentUI = MENU;
-    cmd->ui[MENU]->draw();
+    cmd->ui[cmd->currentUI]->draw();
 }
 
