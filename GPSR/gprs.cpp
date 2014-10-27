@@ -194,16 +194,9 @@ int GPRS::readSMS(char *message, int index)
         return -1;
     }
     
-    //printf("%s\n\r",gprsBuffer);
-    
     if(NULL != ( s = strstr(gprsBuffer,"$$$$") +4 )) {
-        // puts("in if statement\n\r");
         p = strstr(s, "$$") + 2;
         while((*p != '$')&&(i < SMS_MAX_LENGTH-1)&&*p >= ' ' && *p <= 'z') {
-            //if(*p <= '&'){
-            //    if(*p == ' ') message[i++] = ' ';
-            //    else message[i++] = '.';
-            //    p++;
             if(*p == ','){
                 message[i++] = '.';
                 p++;
@@ -212,7 +205,6 @@ int GPRS::readSMS(char *message, int index)
             }
         }
         message[i] = '\0';
-        printf("message == %s\n\r", message);
     }
 
     return 0;
