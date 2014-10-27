@@ -188,8 +188,8 @@ int GPRS::readSMS(char *message, int index)
     char gprsBuffer[100];
     char *p,*s;
     gprsSerial.printf("AT+CMGR=%d\r\n",index);
-    cleanBuffer(gprsBuffer,25);
-    readBuffer(gprsBuffer,25);
+    cleanBuffer(gprsBuffer,50);
+    readBuffer(gprsBuffer,50);
     if(NULL == ( s = strstr(gprsBuffer,"+CMGR"))) {
         return -1;
     }
