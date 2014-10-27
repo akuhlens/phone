@@ -244,11 +244,10 @@ void HangupCall::envoke(){
 
 
 void NextText::envoke(){
-    _command->cell->readSMS(_buffer, (*_state));
-    _command->pc.printf("%s\n\r", _buffer);
-
-    _command->ui[_command->currentUI]->draw();
-    // _command->pc.printf("\n\rnext_text 3: %p %s %d\r\n", _command, _buffer, *_state);
+    if(!_command->cell->readSMS(_buffer, (*_state)++){
+        _command->pc.printf("%s\n\r", _buffer);
+        _command->ui[_command->currentUI]->draw();    
+    }
 }
 
 void PrevText::envoke(){

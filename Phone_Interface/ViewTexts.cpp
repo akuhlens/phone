@@ -3,7 +3,7 @@
 
 ViewTexts::ViewTexts(Command *command, SeeedStudioTFTv2 *display): UserInterface(3 ,4, 1, display){
 
-    static int index = 0;
+    static int index = 1;
 
     Display *disp = new Display(0,0,240,240,command,display);
     
