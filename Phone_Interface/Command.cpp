@@ -76,20 +76,82 @@ void fixpoint_orientation(point& p){
 }
 
 error_status Command::run(){
-   point p; //= (point*) malloc(sizof(point));
-   p.x = 0;
-   p.y = 0;
-   
-   ui[currentUI]->draw();
-   
-   while(isRunning){
+    point p; //= (point*) malloc(sizof(point));
+    p.x = 0;
+    p.y = 0;
+
+    char gprsBuffer[100];
+    int i;
+    char *s = NULL;
+    
+
+    ui[currentUI]->draw();
+
+    while(cell->gprsSerial.readable()) {
+        char c = cell->gprsSerial.getc();
+    }
+    wait(0.5);
+  
+    START:
+  
+    cell->cleanBuffer(gprsBuffer,100);
+    i = 0;
+    while(1) {
+
         if (screen.getPixel(p) ){
             // The points are inverted and incorrectly scaled by this factor
             fixpoint_orientation(p);
             pc.printf("%d %d\n\r",p.x,p.y);
             ui[currentUI]->touch(p);
+        
+        }else if(cell->gprsSerial.readable()) {
+            timeCnt.start();  // start timer
+            while(1) {
+                while (cell->gprsSerial.readable()) {
+                    char c = cell->gprsSerial.getc();
+                    if (c == '\r' || c == '\n') c = '$';
+                    gprsBuffer[i] = c;
+                    i++;
+                    if(i > 100) {
+                        i = 0;
+                        break;
+                    }
+                }
+                if(timeCnt.read() > 2) {          // time out
+                    timeCnt.stop();
+                    timeCnt.reset();
+                    break;
+                }
+            }
+
+
+            if(NULL != strstr(gprsBuffer,"RING")) {
+                cmd->currentUI = scrn;
+                cmd->ui[scrn]->draw();
+            }
+
+            cell->cleanBuffer(gprsBuffer,100);
+            i = 0;
         }
     }
+    /*
+     else if(NULL != (s = strstr(gprsBuffer,"+CMT"))) { //SMS: $$+CMTI: "SM",24$$
+        if(NULL != (s = strstr(gprsBuffer,"+32"))) {
+            s += 6;
+            int i = 0;
+            cleanBuffer(messageBuffer,SMS_MAX_LENGTH);
+            while((*s != '$')&&(i < SMS_MAX_LENGTH-1)) {
+                messageBuffer[i++] = *(s++);
+            }
+            messageBuffer[i] = '\0';
+            return MESSAGE_SMS;
+        } else {
+            goto START;
+        }
+    } else {
+        goto START;
+    }*/
+
     return NO_ERROR;
 }
 
@@ -150,6 +212,8 @@ void SendText::envoke(){
 
 void AnswerHasCall::envoke(){
     // Here's where we answer the call
+    cmd->cell->answer();
+
     const char c = 13;
     cmd->sendInput(&c);
     cmd->currentUI = IN_CALL;
