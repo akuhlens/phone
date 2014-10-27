@@ -203,7 +203,7 @@ int GPRS::readSMS(char *message, int index)
             message[i++] = *(p++);
         }
         message[i] = '\0';
-        // printf("message == %s\n\r", message);
+        printf("message == %s\n\r", message);
     }
 
     return 0;
