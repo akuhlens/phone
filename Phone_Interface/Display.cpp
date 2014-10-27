@@ -24,7 +24,7 @@ void Display::draw(){
         display->rect(x+i,y+i,x+width-i,y+height-i,fgColor);
     display->fillrect(x+bordorWidth,y+bordorWidth,x+width-bordorWidth,y+height-bordorWidth,bgColor);
     
-    display->locate(x+5,y+6);
+    display->locate(x,y);
     display->background(bgColor);
     display->foreground(fgColor);
     display->set_font((unsigned char*) Arial12x12);
