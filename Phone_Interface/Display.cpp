@@ -45,18 +45,3 @@ void Display::sendInput(const char *c){
     draw();
 }
 
-// void Display::clear(){
-//     content[0] = '\0';
-//     contentIndex = 0;
-// }
-
-/*void Display::deleteInput(int n){
-    if(n>contentIndex){
-        contentIndex = 0;
-        content[0] = '\0';
-    }else{
-        contentIndex -= n+1;
-        content[++contentIndex] = '\0';
-    }
-    draw();
-}*/
