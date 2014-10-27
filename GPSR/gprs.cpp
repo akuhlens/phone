@@ -194,7 +194,7 @@ int GPRS::readSMS(char *message, int index)
         return -1;
     }
     
-    //puts(gprsBuffer);
+    printf("%s\n\r",gprsBuffer);
     
     if(NULL != ( s = strstr(gprsBuffer,"+CMGR"))) {
         p = s + 71;
