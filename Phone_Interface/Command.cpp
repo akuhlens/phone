@@ -6,6 +6,7 @@
 #include "Typer.h"
 #include "HasCall.h"
 #include "InCall.h"
+#include "ViewTexts.h"
 
 Serial Command::pc(USBTX, USBRX);
 SeeedStudioTFTv2 Command::screen(PIN_XP, PIN_XM, PIN_YP, PIN_YM, PIN_MOSI, PIN_MISO, PIN_SCLK, PIN_CS_TFT, PIN_DC_TFT, PIN_BL_TFT, PIN_CS_SD);
@@ -40,7 +41,8 @@ Command::Command(){
     ui[TYPER]   = new Typer(this, &screen);
     ui[HAS_CALL]= new HasCall(this, &screen);
     ui[IN_CALL] = new InCall(this, &screen);
-    // Calibrate the screen
+    ui[VIEW_TEXT] = new ViewTexts(this, &screen);  
+  // Calibrate the screen
     screen.calibrate();
     //1.3 set the isRunning state to RUNNING
     isRunning = RUNNING;
@@ -243,15 +245,25 @@ void HangupCall::envoke(){
 
 void NextText::envoke(){
     //int prevState = _state;
-    if(! cmd->cell->readSMS(_display->content, _state + 1)){
-      _state++;
+    _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, _buffer, *_state);
+    char buffer[300] = {0};
+    _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
+    _command->cell->readSMS(buffer, 6);
+    _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
+    if(-1 ==_command->cell->readSMS(buffer, 5)){
+      //(*_state) += 1;
+     _command->pc.printf("\n\rneg\r\n", _command, buffer, *_state);
     }
+
+    _command->ui[_command->currentUI]->draw();
+    _command->pc.printf("\n\rnext_text 3: %p %s %d\r\n", _command, _buffer, *_state);
 }
 
 void PrevText::envoke(){
     //int prevState = _state;
-    if(! cmd->cell->readSMS(_display->content, _state - 1)){
-      _state--;
+    if(! _command->cell->readSMS(_buffer, (*_state) - 1)){
+      *_state -= 1;
     }
+    _command->ui[_command->currentUI]->draw();
 }
 
