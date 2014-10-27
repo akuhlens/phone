@@ -248,15 +248,15 @@ void NextText::envoke(){
     // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, _buffer, *_state);
     char buffer[300] = {0};
     // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
-    _command->cell->readSMS(buffer, 1);
+    _command->cell->readSMS(buffer, 6);
     _command->pc.printf("%s\n\r", buffer);
-    _command->cell->readSMS(buffer, 2);
+    _command->cell->readSMS(buffer, 7);
     _command->pc.printf("%s\n\r", buffer);
-    _command->cell->readSMS(buffer, 3);
+    _command->cell->readSMS(buffer, 8);
     _command->pc.printf("%s\n\r", buffer);
-    _command->cell->readSMS(buffer, 4);
+    _command->cell->readSMS(buffer, 9);
     _command->pc.printf("%s\n\r", buffer);
-    _command->cell->readSMS(buffer, 5);
+    _command->cell->readSMS(buffer, 10);
     _command->pc.printf("%s\n\r", buffer);
     // _command->pc.printf("\n\rnext_text 1: %p %s %d\r\n", _command, buffer, *_state);
     // if(-1 ==_command->cell->readSMS(buffer, 5)){
@@ -270,9 +270,9 @@ void NextText::envoke(){
 
 void PrevText::envoke(){
     //int prevState = _state;
-    if(! _command->cell->readSMS(_buffer, (*_state) - 1)){
-      *_state -= 1;
-    }
-    _command->ui[_command->currentUI]->draw();
+    // if(! _command->cell->readSMS(_buffer, (*_state) - 1)){
+    //   *_state -= 1;
+    // }
+    // _command->ui[_command->currentUI]->draw();
 }
 
