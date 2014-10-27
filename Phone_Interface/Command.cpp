@@ -244,7 +244,7 @@ void HangupCall::envoke(){
 
 
 void NextText::envoke(){
-    if(!cmd->cell->readSMS(buff, *index){
+    if(!cmd->cell->readSMS(buff, *index)){
         *index += 1;
         cmd->ui[cmd->currentUI]->draw();
     }
