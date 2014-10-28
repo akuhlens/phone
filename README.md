@@ -1,6 +1,6 @@
-Lab6 - Phone
-Students: Andre Kuhlenschmidt
-     and: Jonathan Wegener
+#Lab6 - Phone
+###Students: Andre Kuhlenschmidt
+###     and: Jonathan Wegener
 
 
 Results: 
