@@ -12,7 +12,7 @@ I would say that this could be debugged or at the very least filtered by checkin
 a touch. Another issue is that sometimes printing any given string causes the nucleo to freeze. There is some indication
 that printing commas is the cause of this but that seems unlikely.
 
-###What did I learn: 
+###What did we learn: 
 We continue to refine our ability to put together a control loop. This project was more about using
 available assests wisely then building something new. I, Andre, learned about the existence of strstr which seems to have
 many applications. 
