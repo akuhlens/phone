@@ -1,6 +1,12 @@
 #Lab6 - Phone
 ####Students: Jonathan Wegener and Andre Kuhlenschmidt
 
+###The Project:
+This project is the software for a phone that is running on the ST Nucleo microcontroller.
+It is built using the mbed developer tools which doesn't seem to be terribly portable for
+sharing projects but is very portable for moving from one micro controller to another. 
+Their tool is hosted at https://github.com/mbedmicro/mbed.git. 
+
 ###Results: 
 Our phone works for sending and recieving text messages and phone calls. We are particularly proud of our control
 loop which allows you to recieve phone calls at anytime. This could be use to implement asynchronous notifications
